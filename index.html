@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Gestiones Colombia Masivo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+<form name="contact-form" method="post" class="form">
+    <h1 class="title">Gestiones</h1>
+    <h3 class="subtitle">¡Vamos a registrar una gestión!</h3>
+
+    <div class="input-container ic1">
+        <input name="Id Cuenta" id="firstname" class="input" type="text" placeholder=" "/>
+        <div class="cut"></div>
+        <label for="firstname" class="placeholder">Id de la cuenta</label>
+    </div>
+
+<div class="input-container ic2">
+    <select name="Etapa" id="Etapa" class="input" required>
+                    <option value=""></option>
+                    <option value="Volver a llamar">Volver a llamar</option>
+                    <option value="Perdido">Perdido</option>
+                    <option value="Desarrollo">Desarrollo</option>
+                    <option value="Mayor valor">Mayor Valor</option>
+                    <option value="Menor valor">Menor valor</option>
+                    <option value="mantiene">Mantiene</option>
+                </select>
+                <div class="cut"></div>
+                <label for="Etapa" class="placeholder">Etapa</label>
+            </div>
+
+
+    
+    <div class="input-container ic2">
+        <input name="Gestion" id="lastname" class="input" type="text" placeholder=" "/>
+        <div class="cut"></div>
+        <label for="lastname" class="placeholder">Detalle de la gestion</label>
+    </div>
+    
+<input class="btn" type="submit" value="Enviar">
+
+
+<form>
+  <input type="hidden" name="fecha" 
+         value="<?php echo date('m-d-Y'); ?>"> <!-- Solo fecha inicial -->
+  <!-- Campo oculto para hora (se actualiza con JS) -->
+  <input type="hidden" id="hora" name="hora">
+</form>
+
+    
+</form>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const ahora = new Date();
+    document.getElementById('hora').value = 
+      `${String(ahora.getHours()).padStart(2,'0')}:${String(ahora.getMinutes()).padStart(2,'0')}`;
+  });
+</script>
+
+
+<script src="script.js"></script>
+</body>
+</html>
